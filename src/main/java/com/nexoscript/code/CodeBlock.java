@@ -1,5 +1,6 @@
 package com.nexoscript.code;
 
+import com.nexoscript.instructions.CallInstruction;
 import com.nexoscript.instructions.CoutInstruction;
 
 import java.util.ArrayList;
@@ -15,6 +16,7 @@ public class CodeBlock {
             String nextLine = scanner.nextLine();
             if(nextLine.startsWith("0x04")) break;
             if(nextLine.startsWith("0x01")) instructions.add(new CoutInstruction(nextLine));
+            if(nextLine.startsWith("0x06")) instructions.add(new CallInstruction(nextLine));
         }
     }
 

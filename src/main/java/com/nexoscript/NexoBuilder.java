@@ -33,6 +33,9 @@ public class NexoBuilder {
             if(code.contains(">!>")) {
                 code = code.replace(">!>", "0x05");
             }
+            if(code.contains("call")) {
+                code = code.replace("call", "0x06");
+            }
             String outFolder = file.getPath().replace(file.getName(), "") + "build/";
             File outDir = new File(outFolder);
             if(!outDir.exists())
