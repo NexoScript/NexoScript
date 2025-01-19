@@ -1,0 +1,10 @@
+fun main {
+    cout >!> 13213213
+}
+
+fun test {
+    cout >> Hello
+    cout >> Test
+    cout >!> World
+    cout >!> I am 20 Years old!
+}
