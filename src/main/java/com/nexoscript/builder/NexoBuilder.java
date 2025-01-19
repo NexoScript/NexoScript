@@ -1,4 +1,4 @@
-package com.nexoscript;
+package com.nexoscript.builder;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -12,29 +12,10 @@ public class NexoBuilder {
             if (!file.exists() || !file.getName().endsWith(".macro"))
                 throw new FileNotFoundException("Macro File is not Found");
             String code = Files.readString(file.toPath());
-            if (code.contains("fun")) {
-                code = code.replace("fun", "0x00");
-            }
-            if (code.contains("cout")) {
-                code = code.replace("cout", "0x01");
-            }
-            if (code.contains(">>")) {
-                code = code.replace(">>", "0x02");
-            }
-            if(code.contains("{")) {
-                code = code.replace("{", "0x03");
-            }
-            if(code.contains("}")) {
-                code = code.replace("}", "0x04");
-            }
-            if(code.contains("    ")) {
-                code = code.replace("    ", "");
-            }
-            if(code.contains(">!>")) {
-                code = code.replace(">!>", "0x05");
-            }
-            if(code.contains("call")) {
-                code = code.replace("call", "0x06");
+            for (ByteCodes value : ByteCodes.values()) {
+                if (code.contains(value.getKey())) {
+                    code = code.replace(value.getKey(), value.getCode());
+                }
             }
             String outFolder = file.getPath().replace(file.getName(), "") + "build/";
             File outDir = new File(outFolder);

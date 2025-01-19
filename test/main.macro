@@ -1,13 +1,6 @@
 fun main {
-    cout >!> 13213213
-    call test
-
-    cout >!> Finished Test
-}
-
-fun test {
-    cout >> Hello
-    cout >> Test
-    cout >!> World
-    cout >!> I am 20 Years old!
+    int testInt = 1000000000
+    cout >!> *testInt
+    *testInt = 20
+    cout >!> *testInt
 }

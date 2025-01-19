@@ -1,11 +1,10 @@
-package com.nexoscript.instructions;
+package com.nexoscript.runner.instructions;
 
-import com.nexoscript.NexoRunner;
-import com.nexoscript.code.CodeBlock;
-import com.nexoscript.code.Instruction;
+import com.nexoscript.runner.code.Instruction;
+import com.nexoscript.runner.NexoRunner;
 
 public class CallInstruction implements Instruction {
-    private String methodName;
+    private final String methodName;
 
     public CallInstruction(String methodName) {
         this.methodName = methodName.split(" ")[1];

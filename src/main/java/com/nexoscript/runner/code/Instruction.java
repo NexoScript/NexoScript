@@ -1,4 +1,4 @@
-package com.nexoscript.code;
+package com.nexoscript.runner.code;
 
 public interface Instruction {
     boolean execute();
