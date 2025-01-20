@@ -11,9 +11,9 @@ public class NexoBuilder {
         try {
             File file = new File(inputFile);
             if (!file.exists() || !file.getName().endsWith(".nexoscript"))
-                throw new FileNotFoundException("Macro File is not Found");
+                throw new FileNotFoundException("Nexoscript file is not Found");
             String code = Files.readString(file.toPath());
-            for (ByteCodes value : ByteCodes.values()) {
+            for (ByteCode value : ByteCode.values()) {
                 if (code.contains(value.getKey())) {
                     code = code.replace(value.getKey(), value.getCode());
                 }
