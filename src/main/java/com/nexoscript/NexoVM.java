@@ -13,7 +13,7 @@ public class NexoVM {
             switch (args[0]) {
                 case "build" -> {
                     ConsoleUtil.printHeader();
-                    System.out.println("[NexoVM] -> Start NexoBuilder with File: " + args[1]);
+                    System.out.println("[NexoVM] -> Start builder with file: " + args[1]);
                     try {
                         new NexoBuilder(args[1]);
                     } catch (FileNotFoundException e) {
@@ -22,7 +22,7 @@ public class NexoVM {
                 }
                 case "run" -> {
                     ConsoleUtil.printHeader();
-                    System.out.println("[NexoVM] -> Start NexoRunner with File: " + args[1]);
+                    System.out.println("[NexoVM] -> Start runner with file: " + args[1]);
                     try {
                         new NexoRunner(args[1]);
                     } catch (FileNotFoundException e) {
@@ -31,17 +31,17 @@ public class NexoVM {
                 }
                 case "build-run" -> {
                     ConsoleUtil.printHeader();
-                    System.out.println("[NexoVM] -> Start NexoBuilder with File: " + args[1]);
+                    System.out.println("[NexoVM] -> Start builder with file: " + args[1]);
                     try {
                         new NexoBuilder(args[1]);
                     } catch (FileNotFoundException e) {
                         throw new RuntimeException(e);
                     }
-                    System.out.println("[NexoVM] -> Start NexoRunner with File: " + args[1]);
+                    System.out.println("[NexoVM] -> Start runner with file: " + args[1]);
                     try {
                         File file = new File(args[1]);
                         String outFolder = file.getPath().replace(file.getName(), "") + "build/";
-                        File outFile = new File(outFolder + file.getName().replace(".macro", ".nexovm"));
+                        File outFile = new File(outFolder + file.getName().replace(".nexoscript", ".nexovm"));
                         new NexoRunner(outFile.getPath());
                     } catch (FileNotFoundException e) {
                         throw new RuntimeException(e);
@@ -49,7 +49,7 @@ public class NexoVM {
                 }
                 default -> {
                     ConsoleUtil.printHeader();
-                    System.out.println("[NexoVM] -> use NexoVM.exe <build/run> <input file>");
+                    System.out.println("[NexoVM] -> Use nexovm.exe <build/run> <input file>");
                 }
             }
         }

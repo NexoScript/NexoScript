@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class NexoRunner {
-    private static NexoRunner INSTANCE;
+    private static NexoRunner instance;
     private List<CodeBlock> codeBlocks = new ArrayList<>();
     private List<Variable<?>> variables = new ArrayList<>();
 
