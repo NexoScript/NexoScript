@@ -2,7 +2,7 @@ package com.nexoscript;
 
 import com.nexoscript.builder.NexoBuilder;
 import com.nexoscript.runner.NexoRunner;
-import com.nexoscript.utils.ConsoleUtil;
+import com.nexoscript.util.ConsoleUtil;
 
 import java.io.File;
 import java.io.FileNotFoundException;
