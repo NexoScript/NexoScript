@@ -4,17 +4,18 @@ import com.nexoscript.runner.NexoRunner;
 import com.nexoscript.runner.code.Instruction;
 import com.nexoscript.runner.code.Variable;
 import com.nexoscript.runner.var.IntegerVar;
+import com.nexoscript.runner.var.LongVar;
 
-public class IntegerInstruction implements Instruction {
+public class LongInstruction implements Instruction {
     private String name;
-    private int value;
+    private long value;
 
-    public IntegerInstruction(String line) {
+    public LongInstruction(String line) {
         String[] split = line.split(" ");
         if (split.length == 4) {
             this.name = split[1];
             if (split[2].equals("0x08")) {
-                this.value = Integer.valueOf(split[3]);
+                this.value = Long.valueOf(split[3]);
             }
         }
     }
@@ -24,12 +25,12 @@ public class IntegerInstruction implements Instruction {
         if (!NexoRunner.get().getVariables().isEmpty()) {
             for (Variable<?> variable : NexoRunner.get().getVariables()) {
                 if (!variable.key().equals(this.name)) {
-                    NexoRunner.get().getVariables().add(new IntegerVar(this.name, this.value));
+                    NexoRunner.get().getVariables().add(new LongVar(this.name, this.value));
                     return true;
                 }
             }
         } else {
-            NexoRunner.get().getVariables().add(new IntegerVar(this.name, this.value));
+            NexoRunner.get().getVariables().add(new LongVar(this.name, this.value));
             return true;
         }
         return false;
@@ -37,6 +38,6 @@ public class IntegerInstruction implements Instruction {
 
     @Override
     public String getKeyWord() {
-        return "integer";
+        return "long";
     }
 }

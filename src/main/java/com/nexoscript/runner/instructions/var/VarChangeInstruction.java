@@ -3,8 +3,7 @@ package com.nexoscript.runner.instructions.var;
 import com.nexoscript.runner.NexoRunner;
 import com.nexoscript.runner.code.Instruction;
 import com.nexoscript.runner.code.Variable;
-import com.nexoscript.runner.var.IntegerVar;
-import com.nexoscript.runner.var.StringVar;
+import com.nexoscript.runner.var.*;
 import com.nexoscript.util.StringUtil;
 
 public class VarChangeInstruction implements Instruction {
@@ -23,6 +22,14 @@ public class VarChangeInstruction implements Instruction {
                             consoleData.append(split[i]).append(" ");
                         }
                         String contentBetween = StringUtil.getContentBetween(new String(consoleData), "\"", "\"");
+                        this.value = contentBetween;
+                    }
+                    if (split[2].startsWith("'")) {
+                        StringBuilder consoleData = new StringBuilder();
+                        for (int i = 2; i < split.length; i++) {
+                            consoleData.append(split[i]).append(" ");
+                        }
+                        String contentBetween = StringUtil.getContentBetween(new String(consoleData), "'", "'");
                         this.value = contentBetween;
                     }
                     if (split.length == 3) {
@@ -47,6 +54,37 @@ public class VarChangeInstruction implements Instruction {
                         case "integer" -> {
                             IntegerVar integerVar = (IntegerVar) variable;
                             integerVar.setValue(Integer.valueOf(this.value));
+                            return true;
+                        }
+                        case "long" -> {
+                            LongVar longVar = (LongVar) variable;
+                            longVar.setValue(Long.valueOf(this.value));
+                            return true;
+                        }
+                        case "character" -> {
+                            CharVar charVar = (CharVar) variable;
+                            charVar.setValue(this.value.charAt(0));
+                            return true;
+                        }
+                        case "boolean" -> {
+                            BooleanVar booleanVar = (BooleanVar) variable;
+                            if(this.value.equals("0x0F")) {
+                                booleanVar.setValue(true);
+                                return true;
+                            }
+                            if(this.value.equals("0x10")) {
+                                booleanVar.setValue(false);
+                                return true;
+                            }
+                        }
+                        case "double" -> {
+                            DoubleVar doubleVar = (DoubleVar) variable;
+                            doubleVar.setValue(Double.valueOf(this.value));
+                            return true;
+                        }
+                        case "float" -> {
+                            FloatVar floatVar = (FloatVar) variable;
+                            floatVar.setValue(Float.valueOf(this.value));
                             return true;
                         }
                         default -> {
