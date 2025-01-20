@@ -20,8 +20,7 @@ public class StringInstruction implements Instruction {
                     for (int i = 3; i < split.length; i++) {
                         stringData.append(split[i]).append(" ");
                     }
-                    String contentBetween = StringUtil.getContentBetween(new String(stringData), "\"", "\"");
-                    this.value = contentBetween;
+                    this.value = StringUtil.getContentBetween(new String(stringData), "\"", "\"");
                 }
             }
         }

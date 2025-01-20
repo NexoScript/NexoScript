@@ -14,7 +14,7 @@ public class IntegerInstruction implements Instruction {
         if (split.length == 4) {
             this.name = split[1];
             if (split[2].equals("0x08")) {
-                this.value = Integer.valueOf(split[3]);
+                this.value = Integer.parseInt(split[3]);
             }
         }
     }

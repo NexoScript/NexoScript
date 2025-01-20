@@ -1,13 +1,8 @@
-
-define main {
-    
-}
-
 define longTest {
+    long testLong = 100000000000000
     print >!> "Start Long Test"
-    long testLong = 1000000000
     print >!> *testLong
-    *testLong = 1000000001
+    *testLong = 1000000000000001
     print >!> *testLong
     print >!> "End Long Test"
 }
