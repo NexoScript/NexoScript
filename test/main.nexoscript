@@ -1,7 +1,45 @@
 
 define main {
+    
+}
+
+define longTest {
+    print >!> "Start Long Test"
     long testLong = 1000000000
     print >!> *testLong
     *testLong = 1000000001
     print >!> *testLong
+    print >!> "End Long Test"
+}
+
+define charTest {
+    print >!> "Start Char Test"
+    char testChar = 'D'
+    print >!> *testChar
+    *testChar = 'F'
+    print >!> *testChar
+    print >!> "End Char Test"
+
+    print >!> "Start Character Test"
+    character testCharacter = 'D'
+    print >!> *testCharacter
+    *testCharacter = 'F'
+    print >!> *testCharacter
+    print >!> "End Character Test"
+}
+
+define booleanTest {
+    print >!> "Start Bool Test"
+    bool testBool = True
+    print >!> *testBool
+    *testBool = False
+    print >!> *testBool
+    print >!> "End Bool Test"
+
+    print >!> "Start Boolean Test"
+    boolean testBoolean = false
+    print >!> *testBoolean
+    *testBoolean = true
+    print >!> *testBoolean
+    print >!> "End Boolean Test"
 }
