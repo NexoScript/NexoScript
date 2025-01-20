@@ -1,8 +1,9 @@
-package com.nexoscript.utils;
+package com.nexoscript.util;
 
 import java.util.List;
 
 public class StringUtils {
+    
     public static String getContentBetween(String input, String startChar, String endChar) {
         if (input == null || input.isEmpty()) {
             return ""; // Rückgabe eines leeren Strings bei ungültigem Input
