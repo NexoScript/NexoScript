@@ -15,7 +15,7 @@ public class FloatInstruction implements Instruction {
         if (split.length == 4) {
             this.name = split[1];
             if (split[2].equals("0x08")) {
-                this.value = Float.valueOf(split[3]);
+                this.value = Float.parseFloat(split[3]);
             }
         }
     }

@@ -21,8 +21,7 @@ public class VarChangeInstruction implements Instruction {
                         for (int i = 2; i < split.length; i++) {
                             consoleData.append(split[i]).append(" ");
                         }
-                        String contentBetween = StringUtil.getContentBetween(new String(consoleData), "\"", "\"");
-                        this.value = contentBetween;
+                        this.value = StringUtil.getContentBetween(new String(consoleData), "\"", "\"");
                     }
                     if (split[2].startsWith("'")) {
                         StringBuilder consoleData = new StringBuilder();

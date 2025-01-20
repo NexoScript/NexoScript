@@ -15,7 +15,7 @@ public class DoubleInstruction implements Instruction {
         if (split.length == 4) {
             this.name = split[1];
             if (split[2].equals("0x08")) {
-                this.value = Double.valueOf(split[3]);
+                this.value = Double.parseDouble(split[3]);
             }
         }
     }
