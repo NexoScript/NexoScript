@@ -2,11 +2,11 @@ package com.nexoscript.builder;
 
 public enum ByteCode {
     // Keyword for functions / methods
-    FUN("fun", "0x00"),
     FUNC("func", "0x00"),
+    FUN("fun", "0x00"),
     FUNCTION("function", "0x00"),
-    DEF("def", "0x00"),
     DEFINE("define", "0x00"),
+    DEF("def", "0x00"),
     METHOD("method", "0x00"),
     METH("meth", "0x00"),
     MET("met", "0x00"),
@@ -24,13 +24,30 @@ public enum ByteCode {
     FOUR_SPACES("    ", ""),
     THREE_SPACES("   ", ""),
     DOUBLE_INVERT_RIGHT_ARROW(">!>", "0x05"),
+    EQUALS("=", "0x08"),
+
     CALL("call", "0x06"),
     USE("use", "0x06"),
+
     STRING("string", "0x07"),
     STR("str", "0x07"),
-    EQUALS("=", "0x08"),
     INTEGER("integer", "0x09"),
-    INT("int", "0x09");
+    INT("int", "0x09"),
+    LONG("long", "0x0A"),
+    CHAR("char", "0x0B"),
+    CHARACTER("character", "0x0B"),
+    BOOLEAN("boolean", "0x0C"),
+    BOOL("bool", "0x0C"),
+    DOUBLE("double", "0x0D"),
+    FLOAT("float", "0x0E"),
+
+    TRUE("True", "0x0F"),
+    TRUE_SEC("true", "0x0F"),
+    FALSE("False", "0x10"),
+    FALSE_SEC("false", "0x10"),
+
+    ARRAY("array", "0x11");
+
 
     private final String key;
     private final String code;

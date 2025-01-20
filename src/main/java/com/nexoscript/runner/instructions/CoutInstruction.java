@@ -1,10 +1,12 @@
 package com.nexoscript.runner.instructions;
 
+import java.util.Arrays;
 import java.util.Objects;
 
 import com.nexoscript.runner.NexoRunner;
 import com.nexoscript.runner.code.Instruction;
 import com.nexoscript.runner.code.Variable;
+import com.nexoscript.runner.var.ArrayVar;
 import com.nexoscript.util.StringUtil;
 
 public class CoutInstruction implements Instruction {
@@ -40,6 +42,12 @@ public class CoutInstruction implements Instruction {
                         return true;
                     }
                 }
+                for (ArrayVar<?> variable : NexoRunner.get().getArrays()) {
+                    if (variable.key().equals(args[2].substring(1))) {
+                        System.out.print(Arrays.toString(variable.getValue()));
+                        return true;
+                    }
+                }
             }
         }
         if (Objects.equals(args[1], "0x05")) {
@@ -63,6 +71,12 @@ public class CoutInstruction implements Instruction {
             for (Variable<?> variable : NexoRunner.get().getVariables()) {
                 if (variable.key().equals(args[2].substring(1))) {
                     System.out.println(variable.getValue());
+                    return true;
+                }
+            }
+            for (ArrayVar<?> variable : NexoRunner.get().getArrays()) {
+                if (variable.key().equals(args[2].substring(1))) {
+                    System.out.println(Arrays.toString(variable.getValue()));
                     return true;
                 }
             }

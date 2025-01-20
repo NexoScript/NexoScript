@@ -6,9 +6,7 @@ import java.util.Scanner;
 
 import com.nexoscript.runner.instructions.CallInstruction;
 import com.nexoscript.runner.instructions.CoutInstruction;
-import com.nexoscript.runner.instructions.var.IntegerInstruction;
-import com.nexoscript.runner.instructions.var.StringInstruction;
-import com.nexoscript.runner.instructions.var.VarChangeInstruction;
+import com.nexoscript.runner.instructions.var.*;
 
 public class CodeBlock {
     private final List<Instruction> instructions = new ArrayList<>();
@@ -28,6 +26,18 @@ public class CodeBlock {
                 instructions.add(new StringInstruction(nextLine));
             if (nextLine.startsWith("0x09"))
                 instructions.add(new IntegerInstruction(nextLine));
+            if (nextLine.startsWith("0x0A"))
+                instructions.add(new LongInstruction(nextLine));
+            if (nextLine.startsWith("0x0B"))
+                instructions.add(new CharacterInstruction(nextLine));
+            if (nextLine.startsWith("0x0C"))
+                instructions.add(new BooleanInstruction(nextLine));
+            if (nextLine.startsWith("0x0D"))
+                instructions.add(new DoubleInstruction(nextLine));
+            if (nextLine.startsWith("0x0E"))
+                instructions.add(new FloatInstruction(nextLine));
+            if (nextLine.startsWith("0x11"))
+                instructions.add(new ArrayInstruction(nextLine));
             if (nextLine.startsWith("*"))
                 instructions.add(new VarChangeInstruction(nextLine));
         }
