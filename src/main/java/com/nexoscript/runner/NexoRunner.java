@@ -15,10 +15,10 @@ public class NexoRunner {
     private List<Variable<?>> variables = new ArrayList<>();
 
     public NexoRunner(String vmFile) throws FileNotFoundException {
-        INSTANCE = this;
+        instance = this;
         File file = new File(vmFile);
         if (!file.exists() || !file.getName().endsWith(".nexovm"))
-            throw new FileNotFoundException("NexoVM File is not Found");
+            throw new FileNotFoundException("NexoVM file is not Found");
         Scanner scanner = new Scanner(file);
         while (scanner.hasNextLine()) {
             String line = scanner.nextLine();
@@ -35,7 +35,7 @@ public class NexoRunner {
                 if(codeBlock.getName().equals("main")) {
                     codeBlock.getInstructions().forEach(instruction -> {
                         if (!instruction.execute()) {
-                            throw new RuntimeException("[NexoVM] -> Instruction " + instruction.getKeyWord() + " has an Issue!");
+                            throw new RuntimeException("[NexoVM] -> Instruction " + instruction.getKeyWord() + " has an issue!");
                         }
                     });
                 }
@@ -52,6 +52,6 @@ public class NexoRunner {
     }
 
     public static NexoRunner get() {
-        return INSTANCE;
+        return instance;
     }
 }

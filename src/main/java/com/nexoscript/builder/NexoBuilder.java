@@ -6,10 +6,11 @@ import java.io.IOException;
 import java.nio.file.Files;
 
 public class NexoBuilder {
+
     public NexoBuilder(String inputFile) throws FileNotFoundException {
         try {
             File file = new File(inputFile);
-            if (!file.exists() || !file.getName().endsWith(".macro"))
+            if (!file.exists() || !file.getName().endsWith(".nexoscript"))
                 throw new FileNotFoundException("Macro File is not Found");
             String code = Files.readString(file.toPath());
             for (ByteCodes value : ByteCodes.values()) {
@@ -21,7 +22,7 @@ public class NexoBuilder {
             File outDir = new File(outFolder);
             if(!outDir.exists())
                 outDir.mkdirs();
-            File outFile = new File(outFolder + file.getName().replace(".macro", ".nexovm"));
+            File outFile = new File(outFolder + file.getName().replace(".nexoscript", ".nexovm"));
             Files.write(outFile.toPath(), code.getBytes());
         } catch (IOException e) {
             throw new RuntimeException(e);

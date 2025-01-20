@@ -1,6 +1,7 @@
 package com.nexoscript.builder;
 
-public enum ByteCodes {
+public enum ByteCode {
+    // Keyword for functions / methods
     FUN("fun", "0x00"),
     FUNC("func", "0x00"),
     FUNCTION("function", "0x00"),
@@ -10,6 +11,7 @@ public enum ByteCodes {
     METH("meth", "0x00"),
     MET("met", "0x00"),
 
+    // Keyword for console printing
     COUT("cout", "0x01"),
     PRINT("print", "0x01"),
     SOUT("sout", "0x01"),
@@ -23,14 +25,18 @@ public enum ByteCodes {
     THREE_SPACES("   ", ""),
     DOUBLE_INVERT_RIGHT_ARROW(">!>", "0x05"),
     CALL("call", "0x06"),
+    USE("use", "0x06"),
     STRING("string", "0x07"),
-    EQUALS("=", "0x08");
+    STR("str", "0x07"),
+    EQUALS("=", "0x08"),
+    INTEGER("integer", "0x09"),
+    INT("int", "0x09");
 
 
     private final String key;
     private final String code;
 
-    ByteCodes(String key, String code) {
+    ByteCode(String key, String code) {
         this.key = key;
         this.code = code;
     }

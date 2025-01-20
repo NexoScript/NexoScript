@@ -21,8 +21,8 @@ public class CodeBlock {
             if(nextLine.startsWith("0x01")) instructions.add(new CoutInstruction(nextLine));
             if(nextLine.startsWith("0x06")) instructions.add(new CallInstruction(nextLine));
             if(nextLine.startsWith("0x07")) instructions.add(new StringInstruction(nextLine));
+            if(nextLine.startsWith("0x09")) instructions.add(new IntegerInstruction(nextLine));
             if(nextLine.startsWith("*")) instructions.add(new VarChangeInstruction(nextLine));
-            if(nextLine.startsWith("int")) instructions.add(new IntegerInstruction(nextLine));
         }
     }
 
@@ -30,7 +30,7 @@ public class CodeBlock {
         return name;
     }
 
-    public List<com.nexoscript.runner.code.Instruction> getInstructions() {
+    public List<Instruction> getInstructions() {
         return instructions;
     }
 }
