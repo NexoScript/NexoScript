@@ -1,6 +1,7 @@
-package com.nexoscript.utils;
+package com.nexoscript.util;
 
 public class ConsoleUtil {
+    
     public static void printHeader() {
         System.out.println("###################################################");
         System.out.println("#                     NexoVM                       ");
