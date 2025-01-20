@@ -20,7 +20,7 @@ public class NexoBuilder {
             }
             String outFolder = file.getPath().replace(file.getName(), "") + "build/";
             File outDir = new File(outFolder);
-            if(!outDir.exists())
+            if (!outDir.exists())
                 outDir.mkdirs();
             File outFile = new File(outFolder + file.getName().replace(".nexoscript", ".nexovm"));
             Files.write(outFile.toPath(), code.getBytes());

@@ -1,15 +1,16 @@
 package com.nexoscript;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+
 import com.nexoscript.builder.NexoBuilder;
 import com.nexoscript.runner.NexoRunner;
 import com.nexoscript.util.ConsoleUtil;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-
 public class NexoVM {
-    public static void main(String[] args){
-        if(args.length == 2) {
+
+    public static void main(String[] args) {
+        if (args.length == 2) {
             switch (args[0]) {
                 case "build" -> {
                     ConsoleUtil.printHeader();

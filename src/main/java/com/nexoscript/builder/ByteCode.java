@@ -32,7 +32,6 @@ public enum ByteCode {
     INTEGER("integer", "0x09"),
     INT("int", "0x09");
 
-
     private final String key;
     private final String code;
 

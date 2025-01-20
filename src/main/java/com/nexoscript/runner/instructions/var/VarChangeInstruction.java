@@ -5,9 +5,7 @@ import com.nexoscript.runner.code.Instruction;
 import com.nexoscript.runner.code.Variable;
 import com.nexoscript.runner.var.IntegerVar;
 import com.nexoscript.runner.var.StringVar;
-import com.nexoscript.utils.StringUtils;
-
-import java.util.Arrays;
+import com.nexoscript.util.StringUtil;
 
 public class VarChangeInstruction implements Instruction {
     private String value;
@@ -15,20 +13,19 @@ public class VarChangeInstruction implements Instruction {
 
     public VarChangeInstruction(String line) {
         String[] split = line.split(" ");
-        if(split.length >= 3) {
-            if(split[1].equals("0x08")) {
+        if (split.length >= 3) {
+            if (split[1].equals("0x08")) {
                 this.name = split[0].substring(1);
                 if (!split[2].startsWith("*")) {
-                    if(split[2].startsWith("\"")) {
+                    if (split[2].startsWith("\"")) {
                         StringBuilder consoleData = new StringBuilder();
                         for (int i = 2; i < split.length; i++) {
                             consoleData.append(split[i]).append(" ");
                         }
-                        String contentBetween = StringUtils.
-                                getContentBetween(new String(consoleData), "\"", "\"");
+                        String contentBetween = StringUtil.getContentBetween(new String(consoleData), "\"", "\"");
                         this.value = contentBetween;
                     }
-                    if(split.length == 3) {
+                    if (split.length == 3) {
                         this.value = split[2];
                     }
                 }
@@ -38,9 +35,9 @@ public class VarChangeInstruction implements Instruction {
 
     @Override
     public boolean execute() {
-        if(!NexoRunner.get().getVariables().isEmpty()) {
+        if (!NexoRunner.get().getVariables().isEmpty()) {
             for (Variable<?> variable : NexoRunner.get().getVariables()) {
-                if(variable.key().equals(this.name)) {
+                if (variable.key().equals(this.name)) {
                     switch (variable.type()) {
                         case "string" -> {
                             StringVar stringVar = (StringVar) variable;
@@ -49,7 +46,7 @@ public class VarChangeInstruction implements Instruction {
                         }
                         case "integer" -> {
                             IntegerVar integerVar = (IntegerVar) variable;
-                            integerVar.setValue(Integer.parseInt(this.value));
+                            integerVar.setValue(Integer.valueOf(this.value));
                             return true;
                         }
                         default -> {
