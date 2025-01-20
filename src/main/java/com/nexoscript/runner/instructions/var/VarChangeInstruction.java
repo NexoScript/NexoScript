@@ -62,7 +62,7 @@ public class VarChangeInstruction implements Instruction {
                         }
                         case "character" -> {
                             CharVar charVar = (CharVar) variable;
-                            charVar.setValue(this.value.charAt(0));
+                            charVar.setValue(this.value.charAt(1));
                             return true;
                         }
                         case "boolean" -> {

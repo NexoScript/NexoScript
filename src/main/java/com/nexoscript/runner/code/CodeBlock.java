@@ -36,6 +36,8 @@ public class CodeBlock {
                 instructions.add(new DoubleInstruction(nextLine));
             if (nextLine.startsWith("0x0E"))
                 instructions.add(new FloatInstruction(nextLine));
+            if (nextLine.startsWith("0x11"))
+                instructions.add(new ArrayInstruction(nextLine));
             if (nextLine.startsWith("*"))
                 instructions.add(new VarChangeInstruction(nextLine));
         }

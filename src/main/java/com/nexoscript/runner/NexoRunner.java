@@ -8,11 +8,13 @@ import java.util.Scanner;
 
 import com.nexoscript.runner.code.CodeBlock;
 import com.nexoscript.runner.code.Variable;
+import com.nexoscript.runner.var.ArrayVar;
 
 public class NexoRunner {
     private static NexoRunner instance;
     private final List<CodeBlock> codeBlocks = new ArrayList<>();
     private final List<Variable<?>> variables = new ArrayList<>();
+    private final List<ArrayVar<?>> arrays = new ArrayList<>();
 
     public NexoRunner(String vmFile) throws FileNotFoundException {
         instance = this;
@@ -50,6 +52,10 @@ public class NexoRunner {
 
     public List<Variable<?>> getVariables() {
         return variables;
+    }
+
+    public List<ArrayVar<?>> getArrays() {
+        return arrays;
     }
 
     public static NexoRunner get() {
