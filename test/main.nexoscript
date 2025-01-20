@@ -1,0 +1,6 @@
+fun main {
+    int testInt = 1000000000
+    cout >!> *testInt
+    *testInt = 20
+    cout >!> *testInt
+}
