@@ -1,5 +1,5 @@
 define main {
-    use array2Test
+    use arrayTest
 }
 
 define arrayTest {
