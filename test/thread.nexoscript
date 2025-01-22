@@ -1,3 +1,0 @@
-define createThread {
-    vmcall "CreateThread:NameThread:NameFunction"
-}
