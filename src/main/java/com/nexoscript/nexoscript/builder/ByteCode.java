@@ -25,6 +25,11 @@ public enum ByteCode {
     THREE_SPACES("   ", ""),
     DOUBLE_INVERT_RIGHT_ARROW(">!>", "0xA2"),
     EQUALS("=", "0xA3"),
+    ADDITION("<+<", "0xA4"),
+    SUBTRAKTION("<-<", "0xA5"),
+    DIVISION("</<", "0xA6"),
+    MULTIPLIKATION("<*<", "0xA7"),
+    MODULO("<%<", "0xA8"),
 
     CALL("call", "0x02"),
     USE("use", "0x02"),

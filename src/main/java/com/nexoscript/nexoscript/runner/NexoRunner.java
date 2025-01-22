@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Scanner;
 
 import com.nexoscript.nexoscript.runner.code.CodeBlock;
+import com.nexoscript.nexoscript.runner.instructions.codeblock.MethodCodeBlock;
 import com.nexoscript.nexoscript.runner.code.Variable;
 import com.nexoscript.nexoscript.runner.variable.ArrayVariable;
 
@@ -34,7 +35,7 @@ public class NexoRunner {
                 String line = scanner.nextLine();
                 if (line.startsWith("0x00") && line.endsWith("0xB1")) {
                     String[] args = line.split(" ");
-                    CodeBlock codeBlock = new CodeBlock();
+                    MethodCodeBlock codeBlock = new MethodCodeBlock();
                     codeBlock.start(args[1], scanner);
                     codeBlocks.add(codeBlock);
                 }

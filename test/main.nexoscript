@@ -1,76 +1,13 @@
 define main {
-    use arrayTest
+    use addition
 }
 
-define arrayTest {
-    print >!> "Start Array Test"
-    array[int] testArray = [1, 12, 23, 4324]
-    print >!> *testArray
-    print >!> "End Array Test"
-}
+define addition {
+    int a = 100
+    int b = 70
+    int c = 0
 
-define array2Test {
-    print >!> "Start Array Test"
-    array[array[string]] testArray = [["X", "0", "0"], ["0", "X", "X"], ["X", "X", "X"]]
-    print >!> *testArray
-    print >!> "End Array Test"
-}
-
-define longTest {
-    print >!> "Start Long Test"
-    long testLong = 100000000000000
-    print >!> *testLong
-    *testLong = 1000000000000001
-    print >!> *testLong
-    print >!> "End Long Test"
-}
-
-define charTest {
-    print >!> "Start Char Test"
-    char testChar = 'D'
-    print >!> *testChar
-    *testChar = 'F'
-    print >!> *testChar
-    print >!> "End Char Test"
-
-    print >!> "Start Character Test"
-    character testCharacter = 'D'
-    print >!> *testCharacter
-    *testCharacter = 'F'
-    print >!> *testCharacter
-    print >!> "End Character Test"
-}
-
-define booleanTest {
-    print >!> "Start Bool Test"
-    bool testBool = True
-    print >!> *testBool
-    *testBool = False
-    print >!> *testBool
-    print >!> "End Bool Test"
-
-    print >!> "Start Boolean Test"
-    boolean testBoolean = false
-    print >!> *testBoolean
-    *testBoolean = true
-    print >!> *testBoolean
-    print >!> "End Boolean Test"
-}
-
-define doubleTest {
-    print >!> "Start Double Test"
-    double testDouble = 1.0D
-    print >!> *testDouble
-    *testDouble = 5.0D
-    print >!> *testDouble
-    print >!> "End Double Test"
-}
-
-define floatTest {
-    print >!> "Start Float Test"
-    double testFloat = 1.0F
-    print >!> *testFloat
-    *testFloat = 5.0F
-    print >!> *testFloat
-    print >!> "End Float Test"
+    *c = *a <+< *b
+    print >!> "Your Adition is:"
+    print >!> *c
 }

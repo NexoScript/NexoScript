@@ -5,6 +5,8 @@ import com.nexoscript.nexoscript.runner.code.Instruction;
 import com.nexoscript.nexoscript.runner.variable.ArrayVariable;
 import com.nexoscript.nexoscript.util.StringUtil;
 
+import java.util.Arrays;
+
 public class ArrayInstruction implements Instruction {
     private final String name;
     private String[] value;
@@ -31,7 +33,7 @@ public class ArrayInstruction implements Instruction {
     @Override
     public boolean execute() {
         switch (type) {
-            case "0x10", "0x11", "0x12", "0x13", "0x14", "0x15", "0x16", "0x17" -> {
+            case "0x10", "0x11", "0x12", "0x13", "0x14", "0x15", "0x16" -> {
                 NexoRunner.get().getArrays().add(new ArrayVariable<>(this.name, this.value));
                 return true;
             }
